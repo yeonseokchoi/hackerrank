@@ -19,9 +19,7 @@ public class Solution {
     	System.out.println("biStrX : " + biStrX);
     	
     	for (long i=1; i<x; i++) {
-    		
-    		int cnt=0;
-    		
+    		    		
     		String biStrAXORX = "";
     		String biStrA = Long.toBinaryString(i); 
     		
@@ -32,24 +30,21 @@ public class Solution {
     		}
     		//System.out.println("biStrA : " + biStrA);
     		
-    		
+    		char[] biStrXChars = biStrX.toCharArray();
     		int index = biStrA.indexOf("1");
     		LinkedList<Integer> indexes = new LinkedList<Integer>();
     		while (index >= 0) {
     		    indexes.add(index);
-    		    //System.out.println("index : " + index);
+    		    
+    		    if ( biStrXChars[index] == '0'){
+    				biStrXChars[index] = '1';
+    			} else {
+    				biStrXChars[index] = '0';
+    			}
+    		    
     		    index = biStrA.indexOf("1", index + 1);		    
     		}
     		
-    		char[] biStrXChars = biStrX.toCharArray();
-    		for (int k=0; k<indexes.size(); k++) {
-    			int targetInx = indexes.get(k);
-    			if ( biStrXChars[targetInx] == '0'){
-    				biStrXChars[targetInx] = '1';
-    			} else {
-    				biStrXChars[targetInx] = '0';
-    			}
-    		}
     		biStrAXORX = String.valueOf(biStrXChars);
     		//System.out.println("biStrAXORX : " + biStrAXORX);
     		
